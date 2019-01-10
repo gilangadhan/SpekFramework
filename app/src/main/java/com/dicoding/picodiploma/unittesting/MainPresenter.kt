@@ -4,7 +4,7 @@ package com.dicoding.picodiploma.unittesting
  * Created by dicoding on 1/10/2019.
  */
 
-class MainPresenter internal constructor(private val mainView: MainView) {
+class MainPresenter (private val mainView: MainView) {
 
     fun inputVolume(length: String, width: String, height: String) {
         when {
