@@ -1,19 +1,17 @@
 package com.dicoding.picodiploma.unittesting
 
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.it
-import org.jetbrains.spek.api.dsl.on
 import org.junit.Assert
 import org.junit.platform.runner.JUnitPlatform
 import org.junit.runner.RunWith
 import org.mockito.Mockito
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
 
 @RunWith(JUnitPlatform::class)
 class MainPresenterSpec : Spek({
 
     val view = Mockito.mock(MainView::class.java)
-    val presenter =MainPresenter(view)
+    val presenter = MainPresenter(view)
 
     describe("test do calculate") {
         val error = "Field ini tidak boleh kosong"
@@ -23,7 +21,7 @@ class MainPresenterSpec : Spek({
         val empty = ""
         val result = 6.0
 
-        on("do input length empty") {
+        context("do input length empty") {
             presenter.inputVolume(empty, width, height)
 
             it("input length empty") {
@@ -31,7 +29,7 @@ class MainPresenterSpec : Spek({
             }
         }
 
-        on("do input width empty") {
+        context("do input width empty") {
             presenter.inputVolume(length, empty, height)
 
             it("input width empty") {
@@ -39,7 +37,7 @@ class MainPresenterSpec : Spek({
             }
         }
 
-        on("do input height empty") {
+        context("do input height empty") {
             presenter.inputVolume(length, width, empty)
 
             it("input height empty") {
@@ -48,7 +46,7 @@ class MainPresenterSpec : Spek({
         }
 
 
-        on("do input all") {
+        context("do input all") {
             presenter.inputVolume(length, width, height)
 
             it("success input") {
@@ -56,7 +54,7 @@ class MainPresenterSpec : Spek({
             }
         }
 
-        on("do calculate") {
+        context("do calculate") {
             val calculate = presenter.calculateVolume(length.toDouble(), width.toDouble(), height.toDouble())
 
             it("success calculate") {
