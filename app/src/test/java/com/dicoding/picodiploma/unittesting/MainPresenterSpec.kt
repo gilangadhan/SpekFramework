@@ -13,7 +13,7 @@ import org.mockito.Mockito
 class MainPresenterSpec : Spek({
 
     val view = Mockito.mock(MainView::class.java)
-    val presenter =MainPresenter(view)
+    val presenter = MainPresenter(view)
 
     describe("test do calculate") {
         val error = "Field ini tidak boleh kosong"
